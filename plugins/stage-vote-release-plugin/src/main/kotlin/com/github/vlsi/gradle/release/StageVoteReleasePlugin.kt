@@ -554,7 +554,7 @@ class StageVoteReleasePlugin @Inject constructor(private val instantiator: Insta
         val releaseExt = project.the<ReleaseExtension>()
         configure<NexusPublishExtension> {
             serverUrl.set(releaseExt.nexus.url.map { it.replacePath("/service/local/") })
-            snapshotRepositoryUrl.set(releaseExt.nexus.url.map { it.replacePath("/content/repositories/snapshots/") })
+            snapshotRepositoryUrl.set(releaseExt.nexus.url.map { it.replacePath("/nexus/content/repositories/snapshots/") })
             username.set(project.provider { releaseExt.nexus.credentials.username(project) })
             password.set(project.provider { releaseExt.nexus.credentials.password(project) })
         }
@@ -620,7 +620,7 @@ class StageVoteReleasePlugin @Inject constructor(private val instantiator: Insta
                 val repositoryId = releaseExt.repositoryIdStore[nexusRepoName]
 
                 val repoUri =
-                    nexusPublish.serverUrl.get().replacePath("/content/repositories/$repositoryId")
+                    nexusPublish.serverUrl.get().replacePath("/nexus/content/repositories/$repositoryId")
 
                 val grgit = project.property("grgit") as Grgit
 

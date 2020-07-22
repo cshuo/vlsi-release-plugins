@@ -58,7 +58,6 @@ enum class AsfLicenseCategory {
             // MX4J License
             SpdxLicense.BSD_2_Clause,
             SpdxLicense.BSD_2_Clause_FreeBSD,
-            SpdxLicense.BSD_2_Clause_NetBSD,
             SpdxLicense.BSD_3_Clause,
             SpdxLicense.BSD_3_Clause_Attribution,
             SpdxLicense.BSD_3_Clause_Clear,
